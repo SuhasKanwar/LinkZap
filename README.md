@@ -1,4 +1,5 @@
 # LinkZap URL Shortener
+![Project_016_URL_Shortener](https://github.com/user-attachments/assets/38b24863-40c0-4f0d-b19f-2985a484f6db)
 
 **LinkZap** is a robust URL shortening web application that not only shortens URLs but also tracks their usage. With a user-centric focus on data and authentication, LinkZap delivers a personalized experience tailored to each user.
 
