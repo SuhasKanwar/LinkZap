@@ -55,7 +55,7 @@ LinkZap/
 ├── models/              # Database models
 ├── routes/              # Express routes
 ├── views/               # EJS templates
-├── public/              # Static files (CSS, images)
+├── assets/              # Static files (CSS, images)
 ├── scripts/             # Client-side scripts
 ├── middlewares/         # Custom middleware functions
 └── service/             # Service layer
