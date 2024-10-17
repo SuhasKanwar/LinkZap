@@ -28,7 +28,7 @@
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/linkzap.git
+   git clone https://github.com/SuhasKanwar/LinkZap.git
    cd Project_016_URL_Shortener
    ```
 
