@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Suhas Kanwar">
+        <meta name="keywords" content="url, Shortener, collection">
+        <meta name="Description" content="A URL-Shortener app which generates a short ID for the provided url and provides access to all the previously generated URLs.">
+        <title>LinkZap</title>
+        <link rel="stylesheet" href="/style.css">
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    </head>
+    <body>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+    
+        <div class="container">
+            <header>
+                <h1><i class="fas fa-link"></i> LinkZap</h1>
+                <p>Shorten your links, expand your reach</p>
+            </header>
+        
+            <div class="url-form">
+                <form action="/url" method="POST">
+                    <input type="url" name="url" placeholder="Enter your long URL here" required>
+                    <button type="submit"><i class="fas fa-bolt"></i> Zap It!</button>
+                </form>
+            </div>
+        
+            <div class="previous-urls">
+                <h3><i class="fas fa-history"></i> Your Shortened URLs</h3>
+                <ul class="url-list">
+                    <% if (locals.urls && urls.length > 0) { %>
+                        <% urls.forEach(url => { %>
+                            <li>
+                                <span class="short-url">http://localhost:5000/url/<%= url.shortId %></span>
+                                <div class="url-actions">
+                                    <button onclick="showUrlDetails('<%= url.shortId %>')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                                    <button onclick="copyUrl('http://localhost:5000/url/<%= url.shortId %>')" title="Copy URL"><i class="fas fa-copy"></i></button>
+                                </div>
+                            </li>
+                        <% }); %>
+                    <% } else { %>
+                        <li class="no-urls">No URLs shortened yet</li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    
+        <dialog id="share-dialog-box">
+            <form method="dialog">
+                <header>
+                    <h2><i class="fas fa-share-alt"></i> Share Your Shortened Link</h2>
+                    <button class="close-button" title="Close">&times;</button>
+                </header>
+                <div class="copy-link-container">
+                    <input type="text" id="copy-link-input" readonly>
+                    <button class="copy-button"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                <button class="redirect-button"><i class="fas fa-external-link-alt"></i> Go to URL</button>
+                <div id="url-details">
+                    <p><i class="fas fa-link"></i> Original URL: <span id="originalUrl"></span></p>
+                    <p><i class="fas fa-mouse-pointer"></i> Clicks: <span id="clicks"></span></p>
+                </div>
+            </form>
+        </dialog>
+    
+        <script src="/home.js"></script>
+    </body>
+</html>
